@@ -4,7 +4,7 @@ from unittest import mock
 import polars as pl
 import pytest
 
-from etl.extractors import FPL, APIExtractor
+from etl.extractors import APIExtractor
 
 
 @pytest.fixture

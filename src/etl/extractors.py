@@ -100,7 +100,7 @@ class FPL(APIExtractor):
                 # "total_players",
                 "elements",
             ],
-            "fixtures": []
+            "fixtures": [],
         }
 
     def generate(self) -> Generator[tuple[str, DataFrame], None, None]:

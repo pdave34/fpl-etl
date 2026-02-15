@@ -34,6 +34,8 @@ dev = [
     "mkdocs-material>=9.5.26",
     "mkdocstrings>=1.0.3",
     "mkdocstrings-python>=2.0.2",
+    "coverage-threshold>=0.6.2",
+    "pre-commit>=4.5.1",
 ]
 
 [tool.ruff]
