@@ -96,9 +96,7 @@ class OracleDBLoader(BaseLoader):
         self.user = user or os.getenv("ORACLE_USR")
         self.password = password or os.getenv("ORACLE_PWD")
         self.pool_alias = utils.id_generator()
-        odb.defaults.config_dir = (
-            "/Users/astropd/Projects/oracle/oracle-19c/oradata/dbconfig/D7WOB1D1"
-        )
+        odb.defaults.config_dir = os.getenv("ORACLE_CONFIG_DIR")
         odb.create_pool(
             user=self.user,
             password=self.password,
