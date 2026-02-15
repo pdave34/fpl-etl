@@ -36,6 +36,7 @@ dev = [
     "mkdocstrings-python>=2.0.2",
     "coverage-threshold>=0.6.2",
     "pre-commit>=4.5.1",
+    "ty>=0.0.17",
 ]
 
 [tool.ruff]
@@ -45,10 +46,14 @@ extend-exclude = ["notebook.*"]
 [tool.ruff.lint]
 select = ["E", "F", "I"]
 
-[tool.pytest.ini_options]
-addopts = "--cov=etl --cov-report html"
+##[tool.pytest.ini_options]
+##addopts = "--cov=etl --cov-report html"
 
-[tool.pyrefly]
-project-includes = [
-    "**/*.py*",
-]
+[tool.coverage.run]
+branch = true
+parallel = true
+source = ["etl", "tests"]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true

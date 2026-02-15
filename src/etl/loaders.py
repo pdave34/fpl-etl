@@ -92,11 +92,11 @@ class OracleDBLoader(BaseLoader):
             DatabaseError: If connection pool creation fails.
         """
         super().__init__()
-        self.dsn = dsn or os.getenv("ORACLE_DSN")
-        self.user = user or os.getenv("ORACLE_USR")
-        self.password = password or os.getenv("ORACLE_PWD")
+        self.dsn = dsn or os.getenv("ORACLE_DSN", "")
+        self.user = user or os.getenv("ORACLE_USR", "")
+        self.password = password or os.getenv("ORACLE_PWD", "")
         self.pool_alias = utils.id_generator()
-        odb.defaults.config_dir = os.getenv("ORACLE_CONFIG_DIR")
+        odb.defaults.config_dir = os.getenv("ORACLE_CONFIG_DIR", "")
         odb.create_pool(
             user=self.user,
             password=self.password,
