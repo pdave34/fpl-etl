@@ -1,0 +1,25 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+.DS_Store
+
+# Virtual environments & hidden directories
+.venv
+__marimo__
+.pytest_cache/
+.ruff_cache/
+.vscode/
+.python-version
+pipline.log
+notebook.py
+uv.lock
+.coverage
+.coveragerc
+.github
+site
+# Data
+tests/data

@@ -1,0 +1,45 @@
+site_name: FPL ETL
+nav:
+  - Home: index.md
+  - Extractors: src/etl/extractors.md
+  - Loaders: src/etl/loaders.md
+  - Pipeline: src/etl/pipeline.md
+  - Utils: src/etl/utils.md
+theme:
+#  name: readthedocs
+  name: material
+  palette:
+    # Palette toggle for light mode
+    - scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  highlightjs: true
+  hljs_languages:
+    - yaml
+    - rust
+    - python
+    - bash
+    - json
+    - sql
+markdown_extensions:
+  - admonition
+  - codehilite
+  - toc:
+      permalink: true
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          paths:
+            - src
+          options:
+            docstring_style: google   # or "numpy" / "sphinx"
+            show_source: true
+            heading_level: 2
