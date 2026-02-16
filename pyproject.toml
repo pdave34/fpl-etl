@@ -41,10 +41,13 @@ dev = [
 
 [tool.ruff]
 line-length = 100
-extend-exclude = ["notebook.*"]
+extend-exclude = ["*.ipynb"]
 
 [tool.ruff.lint]
 select = ["E", "F", "I"]
+
+[tool.ruff.lint.per-file-ignores]
+"*.ipynb" = ["E402"]
 
 ##[tool.pytest.ini_options]
 ##addopts = "--cov=etl --cov-report html"

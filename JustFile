@@ -58,3 +58,6 @@ clean:
 [group('lifecycle')]
 fresh: clean install
 
+[group('run')]
+rebuild:
+    uv run python -c "from etl.pipeline import Pipeline; p=Pipeline(); p.rebuild()"

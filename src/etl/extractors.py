@@ -50,19 +50,19 @@ class APIExtractor:
         stamp["response_elapsed_ms"] = response.elapsed.total_seconds() * 1000
         return stamp
 
-    def parse(self, stamp: dict, key: Optional[str]) -> DataFrame:
+    def parse(self, stamp: dict, key: Optional[str] = None) -> DataFrame:
         if stamp["response_code"] == 200:
             if key is None:
                 stamp["data"] = stamp["response"].json()
+                key: str = "data"
             else:
                 stamp[key] = stamp["response"].json().get(key)
         else:
             stamp["data"] = None
         del stamp["response"]
         # Build DataFrame based on response success and key presence
-        if stamp["response_code"] == 200 and key is not None:
-            data = stamp.get(key) or []
-            df = pl.DataFrame(data)
+        if stamp["response_code"] == 200:
+            df = pl.DataFrame(data=stamp[key])
         else:
             # Empty DataFrame for failure or missing key, but include metric columns (no rows)
             df = pl.DataFrame(
